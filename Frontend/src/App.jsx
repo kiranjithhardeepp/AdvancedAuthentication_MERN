@@ -8,8 +8,7 @@ import Navbar from "./Component/Navbar";
 import { useAuthStore } from "./Store/authStore";
 import { useEffect } from "react";
 import ForgotPasswordPage from "./Pages/ForgotPassword";
-import ResetPassword from "./Pages/resetPassword";
-
+import ResetPassword from "./Pages/ResetPassword";
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, user } = useAuthStore();
 
