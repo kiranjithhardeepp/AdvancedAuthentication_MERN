@@ -4,9 +4,10 @@ import axios from "axios";
 const API_URL =
   import.meta.env.MODE === "development"
     ? "http://localhost:5000/api/v1/Auth"
-    : "api/v1/Auth";
+    : "https://advancedauthentication-mern.onrender.com/api/v1/Auth"; // Updated the production URL
 
 axios.defaults.withCredentials = true;
+
 export const useAuthStore = create((set) => ({
   user: null,
   isAuthenticated: false,
@@ -14,6 +15,7 @@ export const useAuthStore = create((set) => ({
   isLoading: false,
   isCheckingAuth: true,
   message: null,
+
   Signup: async (email, password, userName) => {
     set({ isLoading: true, error: null });
     try {
@@ -35,6 +37,7 @@ export const useAuthStore = create((set) => ({
       throw error;
     }
   },
+
   signIn: async (email, password) => {
     set({ isLoading: true, error: null });
     try {
@@ -56,6 +59,7 @@ export const useAuthStore = create((set) => ({
       throw error;
     }
   },
+
   verifyEmail: async (verificationCode) => {
     set({ isLoading: true, error: null });
     try {
@@ -77,6 +81,7 @@ export const useAuthStore = create((set) => ({
       throw error;
     }
   },
+
   checkAuth: async () => {
     set({ isCheckingAuth: true, error: null });
     try {
@@ -90,6 +95,7 @@ export const useAuthStore = create((set) => ({
       set({ error: null, isCheckingAuth: false, isAuthenticated: false });
     }
   },
+
   logOut: async () => {
     set({ isLoading: true, error: null });
     try {
@@ -105,6 +111,7 @@ export const useAuthStore = create((set) => ({
       throw error;
     }
   },
+
   forgotPassword: async (email) => {
     set({ isLoading: true, error: null });
     try {
@@ -121,6 +128,7 @@ export const useAuthStore = create((set) => ({
       throw error;
     }
   },
+
   resetPassword: async (token, newPassword) => {
     set({ isLoading: true, error: null });
     try {
