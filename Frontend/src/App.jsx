@@ -80,7 +80,14 @@ function App() {
               </RedirectAuthenticatedUser>
             }
           />
-          <Route path="/resetPassword/:token" element={<ResetPassword />} />
+          <Route
+            path="/resetPassword/:token"
+            element={
+              <RedirectAuthenticatedUser>
+                <ResetPassword />
+              </RedirectAuthenticatedUser>
+            }
+          />
           <Route
             path="*"
             element={
